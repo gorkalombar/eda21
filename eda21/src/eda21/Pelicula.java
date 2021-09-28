@@ -2,7 +2,7 @@ package Laboratorio1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
+/*prueba*/
 public class Pelicula {
 	private double presupuesto;
 	private ArrayList<Actor> listaActor;
