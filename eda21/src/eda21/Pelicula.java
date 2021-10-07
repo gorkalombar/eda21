@@ -1,21 +1,22 @@
-package Laboratorio1;
-
 import java.util.ArrayList;
 import java.util.Iterator;
-/*prueba*/
+
 public class Pelicula {
-	private double presupuesto;
-	private ArrayList<Actor> listaActor;
 	private String titulo;
+	private double dineroRec;
+	private ArrayList<Actor> listaActor;
 	
-	private Iterator<Actor> getIterador(){
-		return (this.listaActor.iterator());
+	public Pelicula(String pTitulo) {
+		this.titulo=pTitulo;
+		this.dineroRec=0;
+		this.listaActor= new ArrayList<Actor>();
 	}
 	
-	public double cambiarPresupuesto(double pCant) {
-		this.presupuesto=this.presupuesto + pCant;
-		return this.presupuesto;
+	public void incrementarDineroRec(double pCant) {
+		this.dineroRec=this.dineroRec + pCant;
 	}
 	
-	
+	public ArrayList<Actor> devolverActoresDePeli(){
+		return this.listaActor;
+	}
 }

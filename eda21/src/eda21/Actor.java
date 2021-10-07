@@ -1,24 +1,19 @@
-package Laboratorio1;
+import java.util.ArrayList;
 
 public class Actor {
 	private String nombre;
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Actor other = (Actor) obj;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		return true;
+	private ArrayList<Pelicula> listaPeli;
+	
+	public Actor(String pNombre) {
+		this.nombre= pNombre;
+		this.listaPeli= new ArrayList<Pelicula>();
 	}
 	
+	public ArrayList<Pelicula> devolverPelisDelActor(){
+		return this.listaPeli;
+	}
 	
+	public String getNombre() {
+		return this.nombre;
+	}
 }
