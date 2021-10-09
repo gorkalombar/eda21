@@ -37,7 +37,31 @@ public class CatalogoPelis {
 		return peli;
 	}
 	
-	
+	public ArrayList<Actor> devolverActoresPeli (String pTitulo){//si la pelicula no esta en el catalogo se devulve una lista vacia y si esta y no tiene actores tambien sera vacia
+		Pelicula peli= this.buscarPeli (pTitulo);
+		ArrayList<Actor> listaAct=new ArrayList<Actor>();
+		if (peli!=null) {
+			listaAct=peli.devolverActoresDePeli();
+		}
+		return listaAct;
+	}
 
+	
+	public void insertarPeli(Pelicula pPeli) {
+		if(pPeli!=null) {
+			this.mapaPelis.put(pPeli.getTitulo(),pPeli);
+			this.listaPelis.add(pPeli);
+			ArrayList<Actor> listaA= pPeli.devolverActoresDePeli();
+			Iterator<Actor> itr=listaA.iterator();
+			Actor act=null;
+			while(itr.hasNext()) {
+				act=itr.next();
+				if (!act.tienePeli(pPeli)) {
+					act.anadirPeli(pPeli);
+				}
+			}
+		}
+	}
+	
 	
 }

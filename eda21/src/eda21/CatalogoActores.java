@@ -10,7 +10,7 @@ public class CatalogoActores {
 	
 	private CatalogoActores(){ 
 		this.listaActores= new ArrayList<Actor>();
-		this.mapaActores= new HashMap<String,Actor>(); 
+		this.mapaActores= new HashMap<String,Actor>(); //el string esta formado por el nombre y el apellido del actor separados por un espacio
 	}
 		
 	
@@ -21,17 +21,17 @@ public class CatalogoActores {
 		return (CatalogoActores.miCatalogoActores);
 	}
 	
-	public ArrayList<Pelicula> devolPelisDelActor(String pNombreActor){
-		Actor actor= this.buscarActor(pNombreActor);
-		ArrayList<Pelicula> lista = new ArrayList();
+	public ArrayList<Pelicula> devolPelisDelActor(String pNombreActor,String pApellidoActor){
+		Actor actor= this.buscarActor(pNombreActor,pApellidoActor);
+		ArrayList<Pelicula> lista = new ArrayList<Pelicula>();
 		if (actor!=null) {
 			lista = actor.devolverPelisDelActor();
 		}
 		return lista;
 	}
 	
-	public Actor buscarActor(String pNombreActor) {
-		Actor actor= this.mapaActores.get(pNombreActor);
+	public Actor buscarActor(String pNombreActor,String pApellidoActor) {
+		Actor actor= this.mapaActores.get(pNombreActor+" "+pApellidoActor);
 		if (actor==null) {
 			System.out.println("No existe ese actor");
 		}
@@ -41,12 +41,42 @@ public class CatalogoActores {
 	
 	public void insertarActor (Actor pActor) { //precondicion:el actor no esta en el catalogo y las pelis ya estan en el catalogo de pelis 
 		if(pActor!=null) {
-			this.mapaActores.put(pActor.getNombre(),pActor);
+			this.mapaActores.put(pActor.getNombre()+" "+pActor.getApellido(),pActor);
 			this.listaActores.add(pActor);
-			//CatalogoPelis.anadirActorASusPelis (pAc);
+			ArrayList<Pelicula> listaP= pActor.devolverPelisDelActor();
+			Iterator<Pelicula> itr=listaP.iterator();
+			Pelicula peli=null;
+			while(itr.hasNext()) {
+				peli=itr.next();
+				if (!peli.estaElActorEnLaPeli(pActor)) {
+					peli.anadirActor(pActor);
+				}
+			}
 		}
 	}
 	
 	
+	public void borrarActor (Actor pActor) { //precondicion:el actor esta en el catalogo 
+		if(pActor!=null) {
+			this.mapaActores.remove(pActor.getNombre()+" "+pActor.getApellido());
+			this.listaActores.remove(pActor);
+			ArrayList<Pelicula> listaP= pActor.devolverPelisDelActor();
+			Iterator<Pelicula> itr=listaP.iterator();
+			Pelicula peli=null;
+			while(itr.hasNext()){
+				peli=itr.next();
+				peli.devolverActoresDePeli().remove(pActor);
+			}
+		}
+	}
+	
+	/*public ArrayList<Actor> ordenarCatalogoActores(){
+		para hacer el quicksort
+	}*/
+	
+	
+	/*private {
+		para hacer el quicksort
+	}*/
 	
 }

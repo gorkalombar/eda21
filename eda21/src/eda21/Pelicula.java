@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Iterator;
+
 
 public class Pelicula {
 	private String titulo;
@@ -19,4 +19,18 @@ public class Pelicula {
 	public ArrayList<Actor> devolverActoresDePeli(){
 		return this.listaActor;
 	}
+	
+	public boolean estaElActorEnLaPeli(Actor pActor) {
+		return this.listaActor.contains(pActor);
+	}
+	
+	public void anadirActor (Actor pActor) {
+		this.listaActor.add(pActor);
+	}
+	
+	public String getTitulo() {
+		return this.titulo;
+	}
+	
+	
 }
