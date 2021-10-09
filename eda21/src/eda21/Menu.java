@@ -1,5 +1,6 @@
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -21,7 +22,7 @@ public class Menu {
 
 		 String linea;
 		 String titulo;
-		 ArrayList actores;
+		 ArrayList<Actor> actores;
 		 String[] arrayDatos;
 		 while (entrada.hasNext()) {
 			 linea = entrada.nextLine();
