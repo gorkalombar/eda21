@@ -60,7 +60,10 @@ public class Menu {
 		}
 		
 		if(selec==0) {
-			
+			System.out.println("Introduzca el nombre del fichero a cargar:");
+			String nomF= keyboard.nextLine();
+			this.cargarFichero(nomF);
+			this.mostrarMenuPrincipal();
 		} else if (selec==1) {
 			
 		} else if (selec==2) {
