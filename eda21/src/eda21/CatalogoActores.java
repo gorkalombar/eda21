@@ -71,7 +71,7 @@ public class CatalogoActores {
 	}
 	
 	/*public ArrayList<Actor> ordenarCatalogoActores(){
-		para hacer el quicksort
+		
 	}*/
 	
 	
