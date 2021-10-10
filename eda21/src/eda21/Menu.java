@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Menu {
 	private static Menu miMenu=null;
-	
+	private static Scanner keyboard = new Scanner(System.in);	
 	private Menu() {	
 	}
 		
@@ -37,7 +37,6 @@ public class Menu {
 	}
 	
 	public void mostrarMenuPrincipal() {
-		Scanner keyboard = new Scanner(System.in);		
 		
 		System.out.println("MENU PRINCIPAL");
 		System.out.println("Seleccione una de las siguiente opciones:");
@@ -59,5 +58,27 @@ public class Menu {
 			System.out.println("Introduzca un numero válido.");
 			this.mostrarMenuPrincipal();
 		}
+		
+		if(selec==0) {
+			
+		} else if (selec==1) {
+			
+		} else if (selec==2) {
+			
+		} else if (selec==3) {
+			
+		} else if (selec==4) {
+			
+		} else if (selec==5) {
+			
+		} else if (selec==6) {
+			
+		} else if (selec==7) {
+			
+		} else if (selec==8) {
+			
+		} else if (selec==9) {
+			System.exit(0);
+		};
 	}
 }
