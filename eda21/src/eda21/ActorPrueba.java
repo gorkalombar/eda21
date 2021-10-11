@@ -52,11 +52,21 @@ class ActorPrueba {
 	void testDevolverPelisDelActor() {
 		ArrayList<Pelicula> listaPrueba1;
 		ArrayList<Pelicula> listaPrueba2;
+		ArrayList<Pelicula> listaPrueba3;
 		listaPrueba1= new ArrayList<Pelicula>();
 		listaPrueba2= new ArrayList<Pelicula>();
+		listaPrueba3= new ArrayList<Pelicula>();
 		
 		listaPrueba1.add(p1);
 		assertEquals(a1.devolverPelisDelActor(), listaPrueba1);
+		
+		listaPrueba2.add(p1);
+		listaPrueba2.add(p2);
+		assertEquals(a2.devolverPelisDelActor(), listaPrueba2);
+		
+		listaPrueba3.add(p1);
+		listaPrueba3.add(p3);
+		assertEquals(a3.devolverPelisDelActor(), listaPrueba3);
 	}
 
 	@Test
