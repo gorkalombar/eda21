@@ -2,6 +2,8 @@
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -48,18 +50,31 @@ class ActorPrueba {
 
 	@Test
 	void testDevolverPelisDelActor() {
+		ArrayList<Pelicula> listaPrueba1;
+		ArrayList<Pelicula> listaPrueba2;
+		listaPrueba1= new ArrayList<Pelicula>();
+		listaPrueba2= new ArrayList<Pelicula>();
 		
-		fail("Not yet implemented");
+		listaPrueba1.add(p1);
+		assertEquals(a1.devolverPelisDelActor(), listaPrueba1);
 	}
 
 	@Test
 	void testGetNombre() {
-		fail("Not yet implemented");
+		assertEquals("Andrea", a1.getNombre());
+		assertEquals("Benito", a2.getNombre());
+		assertEquals("Unachi", a3.getNombre());
+		
+		assertNotEquals("Pereda", a1.getNombre());
 	}
 
 	@Test
 	void testGetApellido() {
-		assertEquals("Lopez",a1.getApellido());
+		assertEquals("Lopez", a1.getApellido());
+		assertEquals("Camela", a2.getApellido());
+		assertEquals("Camala", a3.getApellido());
+		
+		assertNotEquals("Pereda", a1.getApellido());
 	}
 
 	@Test
