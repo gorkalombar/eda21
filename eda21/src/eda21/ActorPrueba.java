@@ -14,6 +14,7 @@ class ActorPrueba {
 	static Actor a1;
 	static Actor a2;
 	static Actor a3;
+	static Actor a4;
 	static Pelicula p1;
 	static Pelicula p2;
 	static Pelicula p3;
@@ -23,6 +24,7 @@ class ActorPrueba {
 		a1=new Actor("Andrea", "Lopez");
 		a2=new Actor("Benito", "Camela");
 		a3=new Actor("Unachi", "Camala");
+		a4=new Actor("Elsa", "Pato");
 		
 		p1=new Pelicula("Señoras feten");
 		p2=new Pelicula("TLTR");
@@ -53,9 +55,11 @@ class ActorPrueba {
 		ArrayList<Pelicula> listaPrueba1;
 		ArrayList<Pelicula> listaPrueba2;
 		ArrayList<Pelicula> listaPrueba3;
+		ArrayList<Pelicula> listaPrueba4;
 		listaPrueba1= new ArrayList<Pelicula>();
 		listaPrueba2= new ArrayList<Pelicula>();
 		listaPrueba3= new ArrayList<Pelicula>();
+		listaPrueba4= new ArrayList<Pelicula>();
 		
 		listaPrueba1.add(p1);
 		assertEquals(a1.devolverPelisDelActor(), listaPrueba1);
@@ -67,6 +71,8 @@ class ActorPrueba {
 		listaPrueba3.add(p1);
 		listaPrueba3.add(p3);
 		assertEquals(a3.devolverPelisDelActor(), listaPrueba3);
+		
+		assertEquals(a4.devolverPelisDelActor(), listaPrueba4);
 	}
 
 	@Test
@@ -89,12 +95,11 @@ class ActorPrueba {
 
 	@Test
 	void testTienePeli() {
-		fail("Not yet implemented");
+		//QUE VERGUENZA MATAME
+		assertTrue(a1.tienePeli(p1));
+		assertFalse(a1.tienePeli(p2));
+		assertFalse(a4.tienePeli(p1));
+		
+	//Hemos quitado el de añadir pelis porque y alo hemos hecho arriba
 	}
-
-	@Test
-	void testAnadirPeli() {
-		fail("Not yet implemented");
-	}
-
 }
