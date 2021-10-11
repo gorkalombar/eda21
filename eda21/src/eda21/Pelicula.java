@@ -15,6 +15,9 @@ public class Pelicula {
 	public void incrementarDineroRec(double pCant) {
 		this.dineroRec=this.dineroRec + pCant;
 	}
+	public double getDineroRec() {
+		return this.dineroRec;
+	}
 	
 	public ArrayList<Actor> devolverActoresDePeli(){
 		return this.listaActor;
