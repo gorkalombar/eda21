@@ -1,4 +1,5 @@
-package JUnits;
+//package eda21;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,8 +9,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class MenuPrueba {
-
+class ActorPrueba {
+	Actor a1;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	}
@@ -27,7 +29,27 @@ class MenuPrueba {
 	}
 
 	@Test
-	void test() {
+	void testDevolverPelisDelActor() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetNombre() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetApellido() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testTienePeli() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testAnadirPeli() {
 		fail("Not yet implemented");
 	}
 
