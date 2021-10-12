@@ -25,13 +25,16 @@ public class Menu {
 		 String linea;
 		 ArrayList<Actor> actores;
 		 String[] arrayDatos;
+		 
 		 while (entrada.hasNext()) {
 			 linea = entrada.nextLine();
 			 arrayDatos = linea.split("--->>>");
 			 Pelicula peli= new Pelicula(arrayDatos[0]);
-			 while(arrayDatos[].hasNext()) {
-				 
+			 
+			 while() {
+				 arrayDatos[1] = linea.split("--->>>");
 			 }
+			 
 		 }
 		 entrada.close();
 		 }
