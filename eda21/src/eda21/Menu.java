@@ -41,6 +41,8 @@ public class Menu {
 				 String apellido=arrayAct[0];
 				 String nombre=arrayAct[1];
 				 Actor actor = new Actor(nombre, apellido);
+				 CatalogoActores.getCatalogoActores().insertarActor(actor);
+				 peli.anadirActor(actor);
 			 }
 
 		 }
