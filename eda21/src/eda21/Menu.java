@@ -28,8 +28,8 @@ public class Menu {
 		 String[] arrayDatos;
 		 while (entrada.hasNext()) {
 			 linea = entrada.nextLine();
-			 arrayDatos=linea.split("#####");
 			 arrayDatos=linea.split("--->>>");
+
 		 }
 		 entrada.close();
 		 }
