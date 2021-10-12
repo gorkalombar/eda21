@@ -23,13 +23,20 @@ public class Menu {
 		 Scanner entrada = new Scanner(new FileReader(nomF));
 
 		 String linea;
-		 String titulo;
 		 ArrayList<Actor> actores;
 		 String[] arrayDatos;
+		 
 		 while (entrada.hasNext()) {
 			 linea = entrada.nextLine();
-			 arrayDatos=linea.split("#####");
-			 arrayDatos=linea.split("--->>>");
+			 arrayDatos = linea.split("--->>>");
+			 Pelicula peli= new Pelicula(arrayDatos[0]);
+			 
+			 while() {
+				 linea = entrada.nextLine();
+				 arrayDatos = linea.split("#####");
+				 Actor actor=new Actor()
+			 }
+			 
 		 }
 		 entrada.close();
 		 }
