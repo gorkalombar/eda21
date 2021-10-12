@@ -117,7 +117,7 @@ public class Menu {
 		} else if (selec==7) {//Guardar los datos en un fichero
 			//TODO
 		} else if (selec==8) {//Obtener lista ordenada de actores
-			CatalogoActores.getCatalogoActores().ordenarCatalogoActores();	//Da error porque el codigo aun no esta hecho
+			CatalogoActores.getCatalogoActores().quickSort();
 			
 		} else if (selec==9) {//Finalizar programa
 			System.exit(0);
