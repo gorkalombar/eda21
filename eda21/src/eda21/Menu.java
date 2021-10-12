@@ -13,7 +13,7 @@ public class Menu {
 	private static Scanner keyboard = new Scanner(System.in);	
 	private Menu() {	
 	}
-		
+
 	public static synchronized Menu getMenu(){
 		if(Menu.miMenu==null) {
 			miMenu=new Menu();
@@ -31,7 +31,7 @@ public class Menu {
 			String[] arrayAct;
 
 			while (entrada.hasNext()) {
-				linea = entrada.nextLine();								//Linea es un string q es cada linea de texto
+				linea = entrada.nextLine();								//Linea es un string que es cada linea de texto
 				arrayDatos = linea.split("--->>>");
 				arrayActores = arrayDatos[1].split("#####");
 				Pelicula peli= new Pelicula(arrayDatos[0]);
@@ -47,7 +47,9 @@ public class Menu {
 					if (CatalogoActores.getCatalogoActores().buscarActor(nombre, apellido)==null) {
 						CatalogoActores.getCatalogoActores().insertarActor(actor);
 					}
-					peli.anadirActor(actor);
+					if(!peli.estaElActorEnLaPeli(actor)) {
+						peli.anadirActor(actor);
+					}
 				}
 			}
 			entrada.close();
@@ -100,14 +102,14 @@ public class Menu {
 			String nomF= keyboard.nextLine();
 			this.cargarFichero(nomF);
 			this.mostrarMenuPrincipal();
-			
+
 		} else if (selec==1) {//Buscar actor/actriz
 			System.out.println("Introduzca el NOMBRE del actor/actriz a buscar:");
 			String nomAct= keyboard.nextLine();
 			System.out.println("Introduzca el APELLIDO del actor/actriz a buscar:");
 			String apeAct= keyboard.nextLine();
 			CatalogoActores.getCatalogoActores().buscarActor(nomAct,apeAct);
-			
+
 		} else if (selec==2) {//Añadir actor/actriz
 			System.out.println("Introduzca el NOMBRE del actor/actriz a anadir:");
 			String nomAct2= keyboard.nextLine();
@@ -115,19 +117,19 @@ public class Menu {
 			String apeAct2= keyboard.nextLine();
 			Actor actorAAnadir=new Actor(nomAct2, apeAct2);
 			CatalogoActores.getCatalogoActores().insertarActor(actorAAnadir);
-			
+
 		} else if (selec==3) {//Obetener las peliculas de un actor/actriz
 			System.out.println("Introduzca el NOMBRE del actor/actriz a buscar:");
 			String nomAct3= keyboard.nextLine();
 			System.out.println("Introduzca el APELLIDO del actor/actriz a buscar:");
 			String apeAct3= keyboard.nextLine();
 			CatalogoActores.getCatalogoActores().devolPelisDelActor(nomAct3, apeAct3);
-			
+
 		} else if (selec==4) {//Obtener los actores/actrices de una pelicula
 			System.out.println("Introduzca el nombre de la pelicula a buscar:");
 			String nomPeli4= keyboard.nextLine();
 			CatalogoPelis.getCatalogoPelis().devolverActoresPeli(nomPeli4);
-			
+
 		} else if (selec==5) {//Incrementar la recaudacion de una pelicula
 			System.out.println("Introduzca el nombre de la pelicula cuya recaudación quiere aumentar:");
 			String nomPeli5= keyboard.nextLine();
@@ -142,15 +144,15 @@ public class Menu {
 			String apeAct2= keyboard.nextLine();
 			Actor actorABorrar=new Actor(nomAct2, apeAct2);
 			CatalogoActores.getCatalogoActores().borrarActor(actorABorrar);
-			
+
 		} else if (selec==7) {//Guardar los datos en un fichero
 			System.out.println("Introduzca el nombre del fichero para guardar:");
 			String nomF7= keyboard.nextLine();
 			this.guardarEnFichero(nomF7);
-			
+
 		} else if (selec==8) {//Obtener lista ordenada de actores
 			CatalogoActores.getCatalogoActores().quickSort();
-			
+
 		} else if (selec==9) {//Finalizar programa
 			System.exit(0);
 		};
