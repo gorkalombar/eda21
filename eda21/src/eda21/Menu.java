@@ -20,35 +20,39 @@ public class Menu {
 		}
 		return (Menu.miMenu);
 	}
-	
+
 	public void cargarFichero(String nomF){//expresiones regulares
-		 try{
-		 Scanner entrada = new Scanner(new FileReader(nomF));
+		try{
+			Scanner entrada = new Scanner(new FileReader(nomF));
 
-		 String linea;
-		 String[] arrayActores;
-		 String[] arrayDatos;
-		 String[] arrayAct;
+			String linea;
+			String[] arrayActores;
+			String[] arrayDatos;
+			String[] arrayAct;
 
-		 while (entrada.hasNext()) {
-			 linea = entrada.nextLine();								//Linea es un string q es cada linea de texto
-			 arrayDatos = linea.split("--->>>");
-			 arrayActores = arrayDatos[1].split("#####");
-			 Pelicula peli= new Pelicula(arrayDatos[0]);
+			while (entrada.hasNext()) {
+				linea = entrada.nextLine();								//Linea es un string q es cada linea de texto
+				arrayDatos = linea.split("--->>>");
+				arrayActores = arrayDatos[1].split("#####");
+				Pelicula peli= new Pelicula(arrayDatos[0]);
+				if (CatalogoPelis.getCatalogoPelis().buscarPeli(arrayDatos[0])==null) {
+					CatalogoPelis.getCatalogoPelis().insertarPeli(peli);
+				}
 
-			 for(int i=0; i< arrayActores.length; i++) {				//for(String s : arrayActores) {
-				 arrayAct = arrayActores[i].split(", ");
-				 String apellido=arrayAct[0];
-				 String nombre=arrayAct[1];
-				 Actor actor = new Actor(nombre, apellido);
-				 CatalogoActores.getCatalogoActores().insertarActor(actor);
-				 peli.anadirActor(actor);
-			 }
-
-		 }
-		 entrada.close();
-		 }
-		 catch(IOException e) {e.printStackTrace();}
+				for(int i=0; i< arrayActores.length; i++) {				//for(String s : arrayActores) {
+					arrayAct = arrayActores[i].split(", ");
+					String apellido=arrayAct[0];
+					String nombre=arrayAct[1];
+					Actor actor = new Actor(nombre, apellido);
+					if (CatalogoActores.getCatalogoActores().buscarActor(nombre, apellido)==null) {
+						CatalogoActores.getCatalogoActores().insertarActor(actor);
+					}
+					peli.anadirActor(actor);
+				}
+			}
+			entrada.close();
+		}
+		catch(IOException e) {e.printStackTrace();}
 	}
 
 	public void guardarEnFichero(String nomF) throws IOException {
