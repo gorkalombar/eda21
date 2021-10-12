@@ -70,13 +70,61 @@ public class CatalogoActores {
 		}
 	}
 	
-	/*public ArrayList<Actor> ordenarCatalogoActores(){
+	public ArrayList<Actor> quickSort(){
+		ArrayList<Actor> duplicado = new ArrayList<>(listaActores);
+		quickSort(duplicado,0,duplicado.size()-1);
+		return duplicado;
+	}
+	
+	
+	private void quickSort (ArrayList<Actor> listaActores,int ini,int fin) {
+		if(fin-ini>0){
+			int indPart=particion(listaActores,ini,fin);
+			quickSort(listaActores,ini,indPart-1);
+			quickSort(listaActores,indPart+1,fin);
+		}
+	}
 		
-	}*/
+	private int particion (ArrayList<Actor> listaActores, int i, int f){
+		Actor pivote=listaActores.get(i); 
+		int izq=i;
+		int der=f;
+		
+		while (izq<der) {
+			while(listaActores.get(izq).compareTo(pivote)<=0 && izq<der) {
+				izq++;
+			}
+			while (listaActores.get(der).compareTo(pivote)>0 ) {
+				der--;
+			}
+			if (izq<der) {
+				swap (listaActores,izq,der);
+			}
+		}
+		listaActores.set(i,listaActores.get(der));
+		listaActores.set(der,pivote);
+		
+		return der;
+	}
+	
+	private void swap (ArrayList<Actor> listaActores, int izq, int der) {
+		Actor actorizq = listaActores.get(izq);
+		Actor actorder = listaActores.get(der);
+		
+		listaActores.set(izq,actorder);
+		listaActores.set(der,actorizq);
+	}
+	
+	public void imprimirInfoActores(){ 
+		Iterator<Actor> itr = listaActores.iterator(); 
+		while(itr.hasNext()){ 
+			Actor a = itr.next(); a.imprimirDatos(); 
+		} 
+	}
 	
 	
-	/*private {
-		para hacer el quicksort
-	}*/
+	
+		
+	
 	
 }

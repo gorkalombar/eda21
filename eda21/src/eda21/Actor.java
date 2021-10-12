@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 
-public class Actor {
+
+public class Actor implements Comparable<Actor> {
 	private String nombre;
 	private String apellido;
 	private ArrayList<Pelicula> listaPeli;
+	
 	
 	public Actor(String pNombre,String pApellido) {
 		this.nombre= pNombre;
@@ -31,4 +33,19 @@ public class Actor {
 	public void anadirPeli (Pelicula pPeli) {
 		this.listaPeli.add(pPeli);
 	}
+	
+	public int compareTo(Actor act) {
+		int i = this.nombre.compareTo(act.nombre);
+		if (i != 0) {
+			return i;
+		}	
+		return this.apellido.compareTo(act.apellido);
+	}
+	
+	public void imprimirDatos() {
+		System.out.println(this.nombre+" "+this.apellido);
+	}
+	
+	
+
 }
