@@ -27,18 +27,17 @@ public class Menu {
 
 		 String linea;
 		 ArrayList<Actor> actores;
+		 String[] arrayActores;
 		 String[] arrayDatos;
-		 String[] arrayDatos2;
 
 		 while (entrada.hasNext()) {
 			 linea = entrada.nextLine();
 			 arrayDatos = linea.split("--->>>");
-			 arrayDatos2 = linea.split("#####");
+			 arrayActores = linea.split("#####");
 			 Pelicula peli= new Pelicula(arrayDatos[0]);
 
-			 for(String s : actores) {
+			 for(String s : ArrayActores) {
 				 Actor actor = new Actor(s);
-
 			 }
 
 		 }
