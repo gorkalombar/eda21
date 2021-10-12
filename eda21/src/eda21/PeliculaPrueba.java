@@ -26,7 +26,7 @@ class PeliculaPrueba {
 		a3=new Actor("Unachi", "Camala");
 		a4=new Actor("Elsa", "Pato");
 		
-		p1=new Pelicula("Señoras feten");
+		p1=new Pelicula("Senoras feten");
 		p2=new Pelicula("TLTR");
 		p3=new Pelicula("Star Wars");
 		p4=new Pelicula("Cumbres Borrascosas");
