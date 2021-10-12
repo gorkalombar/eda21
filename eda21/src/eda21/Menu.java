@@ -26,18 +26,21 @@ public class Menu {
 		 Scanner entrada = new Scanner(new FileReader(nomF));
 
 		 String linea;
-		 ArrayList<Actor> actores;
 		 String[] arrayActores;
 		 String[] arrayDatos;
+		 String[] arrayAct;
 
 		 while (entrada.hasNext()) {
-			 linea = entrada.nextLine();
+			 linea = entrada.nextLine();								//Linea es un string q es cada linea de texto
 			 arrayDatos = linea.split("--->>>");
-			 arrayActores = linea.split("#####");
+			 arrayActores = arrayDatos[1].split("#####");
 			 Pelicula peli= new Pelicula(arrayDatos[0]);
 
-			 for(String s : ArrayActores) {
-				 Actor actor = new Actor(s);
+			 for(int i=0; i< arrayActores.length; i++) {				//for(String s : arrayActores) {
+				 arrayAct = arrayActores[i].split(", ");
+				 String apellido=arrayAct[0];
+				 String nombre=arrayAct[1];
+				 Actor actor = new Actor(nombre, apellido);
 			 }
 
 		 }
@@ -56,9 +59,9 @@ public class Menu {
 		fichero = new FileWriter(pathOut, true);	// true: modo append
 		pw = new PrintWriter(fichero);
 
-		for()
-		pw.println();
-		
+		for(int i=0; i<10; i++) {
+			pw.println();
+		};
 		pw.close();
 
 	}
