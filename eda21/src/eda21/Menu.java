@@ -54,16 +54,17 @@ public class Menu {
 		
 		int selec = keyboard.nextInt();
 		
-		if (selec<0 && selec>9) {
+		while (selec<0 && selec>9) {
 			System.out.println("Introduzca un numero válido.");
-			this.mostrarMenuPrincipal();
-		}
+			selec = keyboard.nextInt();
+		};
 		
 		if(selec==0) {//Cargar los datos
 			System.out.println("Introduzca el nombre del fichero a cargar:");
 			String nomF= keyboard.nextLine();
 			this.cargarFichero(nomF);
 			this.mostrarMenuPrincipal();
+			
 		} else if (selec==1) {//Buscar actor/actriz
 			System.out.println("Introduzca el NOMBRE del actor/actriz a buscar:");
 			String nomAct= keyboard.nextLine();
@@ -72,18 +73,44 @@ public class Menu {
 			CatalogoActores.getCatalogoActores().buscarActor(nomAct,apeAct);
 			
 		} else if (selec==2) {//Añadir actor/actriz
+			System.out.println("Introduzca el NOMBRE del actor/actriz a anadir:");
+			String nomAct2= keyboard.nextLine();
+			System.out.println("Introduzca el APELLIDO del actor/actriz a anadir:");
+			String apeAct2= keyboard.nextLine();
+			Actor actorAAnadir=new Actor(nomAct2, apeAct2);
+			CatalogoActores.getCatalogoActores().insertarActor(actorAAnadir);
 			
 		} else if (selec==3) {//Obetener las peliculas de un actor/actriz
+			System.out.println("Introduzca el NOMBRE del actor/actriz a buscar:");
+			String nomAct3= keyboard.nextLine();
+			System.out.println("Introduzca el APELLIDO del actor/actriz a buscar:");
+			String apeAct3= keyboard.nextLine();
+			CatalogoActores.getCatalogoActores().devolPelisDelActor(nomAct3, apeAct3);
 			
 		} else if (selec==4) {//Obtener los actores/actrices de una pelicula
+			System.out.println("Introduzca el nombre de la pelicula a buscar:");
+			String nomPeli4= keyboard.nextLine();
+			CatalogoPelis.getCatalogoPelis().devolverActoresPeli(nomPeli4);
 			
 		} else if (selec==5) {//Incrementar la recaudacion de una pelicula
-			
+			System.out.println("Introduzca el nombre de la pelicula cuya recaudación quiere aumentar:");
+			String nomPeli5= keyboard.nextLine();
+			System.out.println("Introduzca la cantidad de dinero que quiere anadir (admite decimales):");
+			Double cant= keyboard.nextDouble();
+			CatalogoPelis.getCatalogoPelis().incrementarDineroPeli(nomPeli5, cant);
+
 		} else if (selec==6) {//Eliminar actor/actriz
+			System.out.println("Introduzca el NOMBRE del actor/actriz a eliminar:");
+			String nomAct2= keyboard.nextLine();
+			System.out.println("Introduzca el APELLIDO del actor/actriz a eliminar:");
+			String apeAct2= keyboard.nextLine();
+			Actor actorABorrar=new Actor(nomAct2, apeAct2);
+			CatalogoActores.getCatalogoActores().borrarActor(actorABorrar);
 			
 		} else if (selec==7) {//Guardar los datos en un fichero
-			
+			//TODO
 		} else if (selec==8) {//Obtener lista ordenada de actores
+			CatalogoActores.getCatalogoActores().ordenarCatalogoActores();	//Da error porque el codigo aun no esta hecho
 			
 		} else if (selec==9) {//Finalizar programa
 			System.exit(0);
