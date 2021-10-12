@@ -32,7 +32,9 @@ public class Menu {
 			 Pelicula peli= new Pelicula(arrayDatos[0]);
 			 
 			 while() {
-				 arrayDatos[1] = linea.split("--->>>");
+				 linea = entrada.nextLine();
+				 arrayDatos = linea.split("#####");
+				 Actor actor=new Actor()
 			 }
 			 
 		 }
