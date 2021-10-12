@@ -50,6 +50,9 @@ public class Menu {
 					if(!peli.estaElActorEnLaPeli(actor)) {
 						peli.anadirActor(actor);
 					}
+					if(!actor.tienePeli(peli)) {
+						actor.anadirPeli(peli);
+					}
 				}
 			}
 			entrada.close();
