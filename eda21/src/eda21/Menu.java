@@ -1,7 +1,10 @@
 package eda21;
 
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,26 +29,43 @@ public class Menu {
 		 ArrayList<Actor> actores;
 		 String[] arrayDatos;
 		 String[] arrayDatos2;
-		 
+
 		 while (entrada.hasNext()) {
 			 linea = entrada.nextLine();
 			 arrayDatos = linea.split("--->>>");
 			 arrayDatos2 = linea.split("#####");
 			 Pelicula peli= new Pelicula(arrayDatos[0]);
-			 
-			 for(String s : ArrayActores) {
-				 
-				 
+
+			 for(String s : actores) {
+				 Actor actor = new Actor(s);
+
 			 }
-			 
+
 		 }
 		 entrada.close();
 		 }
 		 catch(IOException e) {e.printStackTrace();}
 	}
-	
-	public void mostrarMenuPrincipal() {
+
+	public void guardarEnFichero(String nomF) throws IOException {
+		String dirActual = System.getProperty("user.dir");				//Averiguar ruta
+		String pathOut = dirActual + File.separator + nomF + ".txt";	//Establecer ruta guardado
+
+		FileWriter fichero = null;
+		PrintWriter pw = null;
+
+		fichero = new FileWriter(pathOut, true);	// true: modo append
+		pw = new PrintWriter(fichero);
+
+		for()
+		pw.println();
 		
+		pw.close();
+
+	}
+
+	public void mostrarMenuPrincipal() {
+
 		System.out.println("MENU PRINCIPAL");
 		System.out.println("Seleccione una de las siguiente opciones:");
 		System.out.println("-0: Cargar los datos");
@@ -59,14 +79,14 @@ public class Menu {
 		System.out.println("-8: Obtener lista ordenada de actores");
 		System.out.println("-9: Finalizar programa");
 		System.out.println("->");
-		
+
 		int selec = keyboard.nextInt();
-		
+
 		while (selec<0 && selec>9) {
 			System.out.println("Introduzca un numero válido.");
 			selec = keyboard.nextInt();
 		};
-		
+
 		if(selec==0) {//Cargar los datos
 			System.out.println("Introduzca el nombre del fichero a cargar:");
 			String nomF= keyboard.nextLine();
@@ -116,7 +136,10 @@ public class Menu {
 			CatalogoActores.getCatalogoActores().borrarActor(actorABorrar);
 			
 		} else if (selec==7) {//Guardar los datos en un fichero
-			//TODO
+			System.out.println("Introduzca el nombre del fichero para guardar:");
+			String nomF7= keyboard.nextLine();
+			this.guardarEnFichero(nomF7);
+			
 		} else if (selec==8) {//Obtener lista ordenada de actores
 			CatalogoActores.getCatalogoActores().quickSort();
 			
