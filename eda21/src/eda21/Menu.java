@@ -61,7 +61,7 @@ public class Menu {
 		catch(IOException e) {e.printStackTrace();}
 	}
 
-	public void guardarEnFichero(String nomF) throws IOException {
+	/*public void guardarEnFichero(String nomF) throws IOException {
 		String dirActual = System.getProperty("user.dir");				//Averiguar ruta
 		String pathOut = dirActual + File.separator + nomF + ".txt";	//Establecer ruta guardado
 
@@ -71,12 +71,14 @@ public class Menu {
 		fichero = new FileWriter(pathOut, true);	// true: modo append
 		pw = new PrintWriter(fichero);
 
-		for(int i=0; i<10; i++) {
+		
+		int cuantosActEnPeli=CatalogoPelis.getCatalogoPelis().
+		for(int i=0; i<; i++) {
 			pw.println();
 		};
 		pw.close();
 
-	}
+	}*/
 
 	public void mostrarMenuPrincipal() {
 
