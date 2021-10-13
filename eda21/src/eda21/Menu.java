@@ -158,6 +158,6 @@ public class Menu {
 
 		} else if (selec==9) {//Finalizar programa
 			System.exit(0);
-		};
+		}
 	}
 }
