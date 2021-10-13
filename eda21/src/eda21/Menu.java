@@ -154,7 +154,7 @@ public class Menu {
 		} else if (selec==7) {//Guardar los datos en un fichero
 			System.out.println("Introduzca el nombre del fichero para guardar:");
 			String nomF7= keyboard.nextLine();
-			this.guardarEnFichero(nomF7);
+			//this.guardarEnFichero(nomF7);
 
 		} else if (selec==8) {//Obtener lista ordenada de actores
 			CatalogoActores.getCatalogoActores().quickSort();
