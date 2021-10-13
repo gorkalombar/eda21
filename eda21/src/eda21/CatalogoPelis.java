@@ -34,7 +34,7 @@ public class CatalogoPelis {
 	}
 	
 	
-	private Pelicula buscarPeli (String pTitulo) {
+	public Pelicula buscarPeli (String pTitulo) {
 		Pelicula peli = this.mapaPelis.get(pTitulo);
 		return peli;
 	}
