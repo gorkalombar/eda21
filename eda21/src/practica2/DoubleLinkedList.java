@@ -57,7 +57,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			last=null;
 			count=0;
 		 } 
-	 return value;
+		 return value;
 	 }
 
 	public T remove(T elem) {
@@ -112,7 +112,6 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			boolean enc;
 			enc=false;
 			Node<T> actual=last;
-			cont=this.count;
 			Iterator<T> it = iterator();
 			while (it.hasNext()||enc){
 				if(actual.equals(elem)) {
