@@ -64,17 +64,15 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	//Elimina un elemento concreto de la lista
 	//coste lineal
 		Node<T> actual=last;
-		int cont;
-		cont=this.count;
-		while (!(actual.equals(elem)||cont==0)){
+		Iterator<T> it = iterator();
+		while (it.hasNext()){
 			actual=last.getPrevious();
-			cont--;
 		}
 		if(actual.equals(elem)){
-			if(count>1) {
+			if(this.count>1) {
 				actual.getPrevious().setNext(actual.getNext());
 				actual.getNext().setPrevious(actual.getPrevious());
-				count=count-1;
+				this.count=this.count-1;
 				if(actual==last) {
 					last=actual.getPrevious();
 				}
@@ -114,14 +112,13 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 			boolean enc;
 			enc=false;
 			Node<T> actual=last;
-			int cont;
 			cont=this.count;
-			while (!(enc||cont==0)){
+			Iterator<T> it = iterator();
+			while (it.hasNext()||enc){
 				if(actual.equals(elem)) {
 					enc=true;
 				}
 				actual=last.getPrevious();
-				cont--;
 			}
 			return enc;
 		}
@@ -150,10 +147,10 @@ public class DoubleLinkedList<T> implements ListADT<T> {
 	
 	public int size() {
 	//Determina el número de elementos de la lista
-		return count;
+		return this.count;
 	}
 	
-	/** Return an iterator to the stack that iterates through the items . */ 
+	
 	public Iterator<T> iterator() { 
 		return new ListIterator(); 
 	} 
