@@ -4,19 +4,19 @@ public class UnorderedDoubleLinkedList<T> extends DoubleLinkedList<T> implements
 	
 	public void addToFront(T elem) {
 	// añade un elemento al comienzo
-		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
+	// coste constante
 
 	}
 
 	public void addToRear(T elem) {
 	// añade un elemento al final 
-		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
+	// constante constante
 
 	}
 	
 	public void addAfter(T elem, T target) {
 	// Añade elem detrás de otro elemento concreto, target,  que ya se encuentra en la lista
-		// ¡COMPLETAR OPCIONAL!
+	//opcional
 	}
 
 }
